@@ -1,0 +1,19 @@
+INSTRUÇÕES PARA CONFIGURAR O ÍCONE DO APP
+==========================================
+
+1. Salve a imagem que você enviou como:
+   c:\Users\Filipe\Desktop\ProjetoApp\conversor_pace\assets\images\app_icon.png
+
+2. Certifique-se de que a imagem tenha pelo menos 1024x1024 pixels para melhor qualidade
+
+3. Após salvar a imagem, execute os seguintes comandos no terminal:
+
+   flutter pub get
+   flutter pub run flutter_launcher_icons
+
+4. Isso irá gerar automaticamente os ícones para todas as plataformas (Android, iOS, Web, Windows, macOS)
+
+5. Para testar, execute:
+   flutter run
+
+O ícone do aplicativo será atualizado em todas as plataformas!
