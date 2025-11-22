@@ -1,81 +1,139 @@
-# 🏃🏊 Pace Converter
+# Pace Converter 🏃‍♂️🏊‍♂️
 
-Um aplicativo Flutter completo para conversão de velocidade e pace para corredores e nadadores.
+Aplicativo Flutter completo para auxiliar corredores e nadadores no cálculo de pace, velocidade e análise de treinos.
 
-## 📱 Sobre o App
-
-Pace Converter é uma ferramenta essencial para atletas que desejam converter diferentes unidades de velocidade e pace de forma rápida e precisa. Perfeito para treinos de corrida e natação!
-
-## ✨ Funcionalidades
+## 📱 Funcionalidades
 
 ### 🏃 Corrida
-Converta entre 6 diferentes unidades de medida:
-- **Pace/km** (minutos por quilômetro)
-- **Pace/mi** (minutos por milha)
-- **km/h** (quilômetros por hora)
-- **m/s** (metros por segundo)
-- **mph** (milhas por hora)
-- **mi/s** (milhas por segundo)
+- **Conversor de Unidades**
+  - Converta entre 6 unidades diferentes: Pace/km, Pace/mi, km/h, m/s, mph, mi/s
+  - Máscaras de entrada automáticas (`:` para pace, `,` para velocidades)
+  - Conversão em tempo real
+
+- **Status de Treino**
+  - Calcule gasto calórico baseado em MET
+  - Pace médio (min/km)
+  - Velocidade média (km/h)
+  - Entrada de tempo, distância, peso e altura
 
 ### 🏊 Natação
-Converta entre 16 diferentes unidades de medida:
-- **min/100m, min/50m, min/25m** (minutos por distância)
-- **s/100m, s/50m, s/25m** (segundos por distância)
-- **min/100yd, min/50yd, min/25yd** (minutos por jardas)
-- **s/100yd, s/50yd, s/25yd** (segundos por jardas)
-- **km/h** (quilômetros por hora)
-- **m/s** (metros por segundo)
-- **mph** (milhas por hora)
-- **yd/s** (jardas por segundo)
+- **Conversor de Unidades**
+  - Converta entre 16 unidades diferentes
+  - Suporte para distâncias de 25m, 50m, 100m (metros e jardas)
+  - Velocidades em km/h, m/s, mph, yd/s
+  - Máscaras de entrada automáticas
 
-## 🎯 Características
+- **Status de Treino**
+  - Calcule gasto calórico baseado em MET
+  - Pace para 50m e 100m
+  - Velocidade média (m/s)
+  - Entrada de tempo, distância, peso e altura
 
-- ✅ **Máscaras automáticas** - Formato `__:__` para pace e `__,__` para velocidades
-- ✅ **Conversão em tempo real** - Veja o resultado enquanto digita
-- ✅ **Interface moderna** - Design limpo com Material Design 3
-- ✅ **Precisão matemática** - Todas conversões passam por m/s como unidade base
-- ✅ **Multiplataforma** - Android, iOS, Web, Windows, macOS e Linux
+## 🎨 Interface
+
+- Material Design 3
+- Navegação hierárquica intuitiva
+- Gradientes temáticos (laranja para corrida, ciano para natação)
+- Cards informativos com dicas de uso
+- Feedback visual em tempo real
+
+## 🏗️ Arquitetura
+
+```
+lib/
+├── main.dart                          # Ponto de entrada
+├── screens/
+│   ├── menu_app.dart                  # Menu principal
+│   ├── menu_run.dart                  # Submenu corrida
+│   ├── menu_swim.dart                 # Submenu natação
+│   ├── running_screen.dart            # Conversor de corrida
+│   ├── running_status_screen.dart     # Status de treino - corrida
+│   ├── swimming_screen.dart           # Conversor de natação
+│   └── swimming_status_screen.dart    # Status de treino - natação
+└── utils/
+    └── formatters.dart                # Formatadores e enums
+```
+
+## 🔧 Tecnologias
+
+- **Flutter SDK**: ^3.9.2
+- **Dart**: ^3.0.0
+- **Material Design 3**: Sim
+- **Packages**: 
+  - cupertino_icons: ^1.0.8
+  - flutter_launcher_icons: ^0.13.1
+
+## 📊 Cálculos
+
+### Gasto Calórico
+Baseado em MET (Metabolic Equivalent of Task):
+- **Corrida**: 8-13.5 MET (varia com velocidade)
+- **Natação**: 6-12 MET (varia com intensidade)
+- Fórmula: `Calorias = MET × Peso(kg) × Tempo(h)`
+
+### Conversões
+Todas as conversões usam **metros por segundo (m/s)** como unidade base para máxima precisão.
 
 ## 🚀 Como Usar
 
-1. Clone o repositório:
+### Instalação
 ```bash
-git clone https://github.com/seu-usuario/conversor_pace.git
-```
+# Clone o repositório
+git clone https://github.com/FilipeA11/pace-converter.git
 
-2. Entre no diretório:
-```bash
-cd conversor_pace
-```
+# Entre no diretório
+cd pace-converter
 
-3. Instale as dependências:
-```bash
+# Instale as dependências
 flutter pub get
-```
 
-4. Execute o app:
-```bash
+# Execute o aplicativo
 flutter run
 ```
 
-## 📦 Dependências
+### Requisitos
+- Flutter SDK 3.9.2 ou superior
+- Dart 3.0.0 ou superior
+- Android Studio / VS Code com extensões Flutter
+- Dispositivo Android/iOS ou emulador
 
-- Flutter SDK: ^3.9.2
-- Material Design 3
-- flutter_launcher_icons: ^0.13.1
+## 📝 Formato de Entrada
 
-## 🎨 Screenshots
+- **Tempo**: MM:SS (ex: 25:30)
+- **Pace**: __:__ (ex: 05:30)
+- **Velocidades**: __,__ (ex: 12,50)
+- **Distância (corrida)**: km (ex: 5,0)
+- **Distância (natação)**: metros (ex: 1000)
+- **Peso**: kg (ex: 70,5)
+- **Altura**: cm (ex: 175)
 
-_(Adicione screenshots do seu app aqui)_
+## 🎯 Unidades Suportadas
 
-## 📝 Licença
+### Corrida (6 unidades)
+- Pace/km (min/km)
+- Pace/mi (min/mi)
+- km/h
+- m/s
+- mph
+- mi/s
 
-Este projeto está sob a licença MIT.
+### Natação (16 unidades)
+- min/100m, min/50m, min/25m
+- s/100m, s/50m, s/25m
+- min/100yd, min/50yd, min/25yd
+- s/100yd, s/50yd, s/25yd
+- km/h, m/s, mph, yd/s
 
-## 👨‍💻 Autor
+## 📄 Licença
 
-Desenvolvido por Filipe
+Este projeto é de código aberto e está disponível sob a licença MIT.
+
+## 👨‍💻 Desenvolvedor
+
+**Filipe A11**
+- GitHub: [@FilipeA11](https://github.com/FilipeA11)
+- Repositório: [pace-converter](https://github.com/FilipeA11/pace-converter)
 
 ---
 
-**Feito com ❤️ e Flutter**
+Desenvolvido com ❤️ usando Flutter
